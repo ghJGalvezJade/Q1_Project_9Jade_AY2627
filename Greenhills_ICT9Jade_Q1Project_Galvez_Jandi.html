@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Q1 Project</title>
+
+
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+
+            body {
+                font-family: 'Caveat', cursive;
+                color: #0e1920;
+                background-color: #f2f2f0;
+                line-height: 1.6;
+            }
+
+
+            header {
+                background-color: #b5c7eb;
+                padding: 12px 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+
+            .brand-container {
+                display: flex;
+                align-items: center;
+            }
+
+
+            .logo-img {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+
+            nav a {
+                color: #4e2f34;
+                text-decoration: none;
+                font-family: 'DM Mono', monospace;
+                font-weight: 600;
+                margin-left: 25px;
+                font-size: 0.95rem;
+                transition: opacity 0.2s ease;
+            }
+
+
+            nav a:hover {
+                opacity: 0.8;
+                color: #4e2f34;
+            }
+
+
+            nav {
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 width: 100%;
+            }
+
+
+            .nav-links {
+                display: flex;
+                list-style: none;
+            }
+
+
+            .hero {
+                background-color: #4e2f34;
+                padding: 60px 20px;
+                text-align: center;
+            }
+
+
+            .avatar-img {
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid #b5c7eb;
+            }
+
+
+            .hero h1 {
+                font-family: 'DM Mono', monospace;
+                font-size: 2.8rem;
+                color: #E5DED8;
+                font-weight: 700;
+            }
+
+
+            .hero h1 span {
+                color: #b5c7eb;
+            }
+
+
+            .hero p {
+                font-size: 1.1rem;
+                color: #E5DED8;
+                margin-top: 10px;
+                font-style: italic;
+            }
+
+
+            main {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+
+
+            .section-pill {
+             background-color: #4e2f34;
+             color: #b5c7eb;
+             font-family: 'DM Mono', monospace;
+             font-weight: 700;
+             font-size: 1.5rem;
+             text-align: center;
+             padding: 12px;
+              border-radius: 12px;
+             margin: 50px auto 30px auto;
+             width: 100%;
+             max-width: 550px;
+             box-shadow: 0 4px 10px rgba(14, 25, 32, 0.15);
+            }
+
+
+            section {
+                scroll-margin-top: 80px;
+            }
+
+
+            #about p {
+                text-align: center;
+                max-width: 700px;
+                margin: 0 auto;
+                font-size: 1.05rem;
+                color: #0e1920;
+            }
+
+
+            .work-card {
+              display: flex;
+             flex-direction: row;
+              align-items: center;
+             gap: 30px;
+             margin-bottom: 40px;
+              background-color: #ffffff;
+              padding: 24px;
+              border-radius: 14px;
+              border: 4px dashed #4e2f34;
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            }
+
+            .work-card:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+
+            .preview-box {
+                flex: 1;
+                text-align: center;
+            }
+
+
+            .preview-img {
+             width: 100%;
+             max-width: 380px;
+             height: auto;
+             border-radius: 12px;
+             display: block;
+              margin: 0 auto;
+            }
+
+
+            .preview-caption {
+                margin-top: 10px;
+                font-size: 0.95rem;
+                color: #132213;
+                font-weight: 600;
+            }
+
+
+            .work-details {
+                flex: 1;
+            }
+
+
+            .work-details ul {
+                list-style: none;
+                padding: 0;
+                margin-bottom: 16px;
+            }
+
+
+            .work-details li {
+                font-size: 1.05rem;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                color: #0e1920;
+            }
+
+
+            .work-details li::before {
+                content: "✓";
+                margin-right: 8px;
+                font-weight: bold;
+                color: #4e2f34;
+            }
+
+
+            .project-link {
+                color: #33627d;
+                text-decoration: underline;
+                font-weight: 600;
+            }
+
+
+            .project-link:hover {
+                color: #b5c7eb;
+            }
+
+
+            .form-card {
+                background-color: #ffffff;
+                border-radius: 16px;
+                padding: 35px 40px;
+                max-width: 500px;
+                margin: 0 auto;
+                border: 1px solid #a1a69f;
+                box-shadow: 0 8px 24px rgba(14, 25, 32, 0.08);
+            }
+
+
+            .form-card label {
+                display: block;
+                font-weight: 700;
+                margin-top: 15px;
+                margin-bottom: 6px;
+                font-size: 1rem;
+                color: #0e1920;
+            }
+
+
+            .form-card input[type="text"],
+            .form-card input[type="email"],
+            .form-card select,
+            .form-card textarea {
+                width: 100%;
+                padding: 10px 14px;
+                border: 1px solid #a1a69f;
+                border-radius: 6px;
+                font-family: inherit;
+                font-size: 0.95rem;
+                outline: none;
+                background-color: #f2f2f0;
+                color: #0e1920;
+            }
+
+
+            .form-card input[type="text"]:focus,
+            .form-card input[type="email"]:focus,
+            .form-card select:focus,
+            .form-card textarea:focus {
+                border-color: #33627d;
+                background-color: #ffffff;
+            }
+
+
+            .inline-group {
+                display: flex;
+                gap: 12px;
+                align-items: center;
+                font-weight: normal;
+                margin-top: 4px;
+            }
+
+
+            .inline-group label {
+                font-weight: normal;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 0.95rem;
+                color: #0e1920;
+            }
+
+
+            .submit-btn {
+                width: 100%;
+                background-color: #4E2F34;
+                color: #f2f2f0;
+                border: none;
+                padding: 12px;
+                border-radius: 6px;
+                font-family: 'DM Mono', monospace;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-top: 25px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+
+
+            .submit-btn:hover {
+                background-color: #b5c7eb;
+            }
+
+
+            footer {
+                background-color: #b5c7eb;
+                color: #f2f2f0;
+                text-align: center;
+                padding: 20px;
+                margin-top: 60px;
+                font-size: 0.95rem;
+            }
+
+
+            @media (max-width: 650px) {
+                .work-card,
+                .work-card:nth-child(even) {
+                    flex-direction: column;
+                }
+
+
+                header {
+                    padding: 12px 20px;
+                }
+            }
+        </style>
+    </head>
+
+
+    <body>
+
+
+        <header>
+    <nav>
+        <div class="logo-badge">
+            <img src="file:///Users/wingsofwilliamsyahoo.com/Desktop/Screenshot%202026-09-23%20at%204.54.33%E2%80%AFPM.png" alt="Logo" class="logo-img">
+        </div>
+
+
+                <ul class="nav-links">
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#works">My Works</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <section class="hero">
+            <img src="file:///Users/wingsofwilliamsyahoo.com/Desktop/Profile%20picture.png" alt="pfp" class="avatar-img">
+
+
+
+            <h1>Hello, I'm <span class="highlight-name">Jandi Galvez</span></h1>
+            <p class="subtitle">An Aspiring Web Developer</p>
+        </section>
+
+
+        <main class="main-content">
+
+
+            <section id="about">
+                <div class="section-pill">About me</div>
+
+
+                <p class="about-text">
+                    Hi, I'm Jandi! I'm new to coding and so far I'm having a blast. I'm still learning the basics and I make a lot of mistakes, but Im excited to improve my coding skill and see what I can create.
+                </p>
+            </section>
+
+
+            <section id="works">
+                <div class="section-pill">My Works</div>
+
+
+                <div class="work-card">
+                    <div class="preview-box">
+
+
+                        <img
+                            src="file:///Users/wingsofwilliamsyahoo.com/Desktop/My%20top%20spotify%20artists.png"
+                            alt="My Favorite Spotify Artist Project"
+                            class="preview-img"
+                        >
+
+
+                        <p class="preview-caption">
+                            My Favorite Spotify Artist
+                        </p>
+                    </div>
+
+
+                    <div class="work-details">
+                        <ul>
+                            <li>HTML & CSS Projects</li>
+                            <li>Spotify Artist</li>
+                            <li>List, Links, and Images</li>
+                        </ul>
+
+
+                        <a href="#" class="project-link">
+                            View GitHub Repository
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="work-card">
+                    <div class="preview-box">
+
+
+                        <img
+                            src="file:///Users/wingsofwilliamsyahoo.com/Desktop/Rate%20a%20movie.png"
+                            alt="My Rate a Movie Form Project"
+                            class="preview-img"
+                        >
+
+
+                        <p class="preview-caption">
+                            My Rate a Movie Form
+                        </p>
+                    </div>
+
+
+                    <div class="work-details">
+                        <ul>
+                            <li>HTML & CSS Projects</li>
+                            <li>HTML Forms</li>
+                            <li>Movie Recommendations</li>
+                        </ul>
+
+
+                        <!-- Replace href="#" with your repository link if you have one -->
+                        <a href="#" class="project-link">
+                            View GitHub Repository
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="contact">
+                <div class="section-pill">Contact Me</div>
+
+
+                <div class="form-card">
+
+
+                    <form
+                        action="#"
+                        method="post"
+                        onsubmit="event.preventDefault(); this.reset();"
+                    >
+
+
+                        <div class="form-group">
+                            <label for="user-name" class="field-label">
+                                Your Name:
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="user-name"
+                                name="userName"
+                                class="text-input"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="user-email" class="field-label">
+                                Your Email:
+                            </label>
+
+
+                            <input
+                                type="email"
+                                id="user-email"
+                                name="userEmail"
+                                class="text-input"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="field-label">
+                                How did you find me?
+                            </label>
+
+
+                            <div class="inline-group">
+
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="source"
+                                        value="Instagram"
+                                    >
+                                    <span>Instagram</span>
+                                </label>
+
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="source"
+                                        value="Google"
+                                    >
+                                    <span>Google</span>
+                                </label>
+
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="source"
+                                        value="Friends"
+                                    >
+                                    <span>Friends</span>
+                                </label>
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="field-label">
+                                Interested In:
+                            </label>
+
+
+                            <div class="inline-group">
+
+
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name="interest"
+                                        value="Web Design"
+                                    >
+                                    <span>Web Design</span>
+                                </label>
+
+
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name="interest"
+                                        value="Graphic Design"
+                                    >
+                                    <span>Graphic Design</span>
+                                </label>
+
+
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name="interest"
+                                        value="Robotics"
+                                    >
+                                    <span>Robotics</span>
+                                </label>
+
+
+                            </div>
+                        </div>
+
+
+                        <label for="rating">
+                            <span>Rate my Portfolio</span>
+                        </label>
+
+
+                        <select id="rating" name="rating">
+                            <option value="">-- Select Rating --</option>
+                            <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                            <option value="4">⭐⭐⭐⭐ (Good)</option>
+                            <option value="3">⭐⭐⭐ (Average)</option>
+                        </select>
+
+
+                        <label for="feedback">
+                            <span>Any Feedback?</span>
+                        </label>
+
+
+                        <textarea
+                            id="feedback"
+                            name="feedback"
+                            rows="4"
+                            placeholder="feedback here..."
+                        ></textarea>
+
+
+                        <button type="submit" class="submit-btn">
+                            Submit
+                        </button>
+
+
+                    </form>
+
+
+                </div>
+            </section>
+
+
+        </main>
+
+
+        <footer>
+            &copy; 2026 Jandi Galvez. All rights reserved.
+        </footer>
+
+
+    </body>
+</html>
